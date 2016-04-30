@@ -1,0 +1,43 @@
+﻿@model NETProject.ViewModels.SharedViewModel
+<div class="col-md-4">
+    <h3>Je keuzes</h3>
+    <p class="p-left">Gekozen jaar:</p>
+    @if (Model.Grade == null)
+    {
+        <p class="p-right">Geen</p>
+    }
+    else
+    {
+        <p class="p-right">@Model.Grade.Id.ToString()</p>
+    }
+    <hr />
+    <p class="p-left">Gekozen continent:</p>
+    @if (Model.Continent == null)
+    {
+        <p class="p-right">Geen</p>
+    }
+    else
+    {
+        <p class="p-right">@Model.Continent.Name</p>
+    }
+    <hr />
+    <p class="p-left">Gekozen land:</p>
+    @if (Model.Country == null)
+    {
+        <p class="p-right">Geen</p>
+    }
+    else
+    {
+        <p class="p-right">@Model.Country.Name</p>
+    }
+    <hr />
+    <p class="p-left">Gekozen locatie:</p>
+    @if (Model.Location == null)
+    {
+        <p class="p-right">Geen</p>
+    }
+    else
+    {
+        <p class="p-right">@Model.Location.Name</p>
+    }
+</div>

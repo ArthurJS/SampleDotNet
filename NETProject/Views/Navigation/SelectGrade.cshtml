@@ -1,0 +1,36 @@
+﻿@using System.ComponentModel.DataAnnotations
+@using NETProject.Models.Domain
+@model NETProject.ViewModels.NavigationViewModel
+
+@{
+    ViewBag.Title = "Kies je jaar";
+}
+
+<div class="row vertical-divider">
+    <div class="col-md-4">
+        <h3>Welkom!</h3>
+        <p>Wij verwelkomen je graag op onze Klimatogramtrainer. Hier kun je steeds terecht om oefeningen te
+            maken omtrent klimatogrammen. Wil je je voorbereiden op een test of wil je gewoonweg je kennis
+            testen rond klimatogrammen? Dan ben je hier steeds welkom! Ik zou zeggen kijk maar eens rond
+            en veel leerplezier!
+        </p>
+    </div>
+    <div class="col-md-8">
+        <div class="col" style="padding: 5px">
+            <h1>@ViewBag.Title</h1>
+            <h4>Klimatogrammen gaan enkel over Europa.</h4>
+            <p>@Html.ActionLink("1ste jaar", "SelectContinent", "Navigation", new {selectedGrade = 1}, null)</p>
+            <p>@Html.ActionLink("2de jaar", "SelectContinent", "Navigation", new {selectedGrade = 2}, null)</p>
+        </div>
+        <div class="col" style="padding: 5px">
+            <h4>Klimatogrammen gaan over de hele wereld.</h4>
+            <p>@Html.ActionLink("3de jaar", "SelectContinent", "Navigation", new {selectedGrade = 3}, null)</p>
+            <p>@Html.ActionLink("4de jaar", "SelectContinent", "Navigation", new {selectedGrade = 4}, null)</p>
+        </div>
+        <div class="col" style="padding: 5px">
+            <h4>Klimatogrammen gaan over de hele wereld.</h4>
+            <p>@Html.ActionLink("5de jaar", "SelectContinent", "Navigation", new {selectedGrade = 5}, null)</p>
+            <p>@Html.ActionLink("6de jaar", "SelectContinent", "Navigation", new {selectedGrade = 6}, null)</p>
+        </div>
+    </div>
+</div>

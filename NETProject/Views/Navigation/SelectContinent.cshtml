@@ -1,0 +1,20 @@
+﻿@using NETProject.Models.Domain
+@model NETProject.ViewModels.NavigationViewModel
+
+@{
+    ViewBag.Title = "Kies een continent";
+
+}
+
+<div class="row vertical-divider">
+    @Html.Action("RenderChoiceWindow", "Navigation", new { grade = Model.Grade, continent = Model.Continent, country = Model.Country, location = Model.Location })
+    <div class="col-md-8">
+        <h2>@ViewBag.Title</h2>
+        <div class="col" style="padding: 5px">
+            @foreach (var c in Model.List.Select(c => (Continent)c).Select(c => c.Name))
+            {
+                <p class="p-list">@Html.ActionLink(c, "SelectCountry", "Navigation", new { selectedGrade = Model.Grade.Id, selectedContinent = c }, null)</p>
+            }
+        </div>
+    </div>
+</div>

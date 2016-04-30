@@ -1,0 +1,117 @@
+﻿@using NETProject.Models.Domain
+@model NETProject.ViewModels.DeterminationTableViewModel
+@{
+    Node rootNode = Model.Determinatietabel;
+    
+}
+<div class="tree">
+    @Html.Raw(Model.getTableHtml())
+    <button class="controleer" id="uit">Controleer</button>
+    <div id="dialog" title="Knap werk!">
+        <p></p>
+    </div>
+</div>
+<script>
+    var solution = @Html.Raw(Json.Encode(Model.DeterminatiePad));
+    var popupHtml = "@Html.Raw(Model.PopupHtml)";
+    var determinationPath = [];
+    var nodeIdPath = [];
+    var comparison = [];
+    var vegetationType = "@Html.Raw(Model.ClimatogramSolution[1])";
+
+    $(function() {
+        $(".btnYes, .btnNo, .btnBack").attr("id", "uit");
+        $(".node:first").addClass("selected").children(".btnBack").remove();
+        $(".node:first").children("button").attr("id", "aan");
+
+        $("#dialog").dialog({
+            autoOpen: false,
+            minWidth: 600,
+            show: {
+                effect: "blind",
+                duration: 500
+            },
+            hide: {
+                effect: "explode",
+                duration: 500
+            }
+        });
+        $("#dialog").children("p").html(popupHtml);
+    });
+
+    $(".btnBack").click(function() {
+        $(this).parent().removeClass("selected").children("button").attr("id", "uit");
+        $("#" + nodeIdPath.pop()).removeClass("wasSelected").addClass("selected").children("button").attr("id", "aan");
+        determinationPath.pop();
+    });
+
+    $(".btnYes, .btnNo").click(function() {
+        if ($(this).attr("class") == "btnYes") {
+            determinationPath.push(true);
+        } else {
+            determinationPath.push(false);
+        }
+
+        nodeIdPath.push($(this).parent().attr("id"));
+        $(this).parent().removeClass("selected").addClass("wasSelected");
+        $(this).parent().children("button").attr("id", "uit");
+        $("#" + $(this).attr("data")).addClass("selected");
+        if ($(".selected").attr("class") == "leaf selected") {
+            $(".controleer").attr("id", "aan");
+        }
+        else{
+            $("#" + $(this).attr("data")).children("button").attr("id", "aan");
+        }
+    });
+
+    $(".controleer").click(function() {
+        if (JSON.stringify(solution) == JSON.stringify(determinationPath)) {
+            $(".selected, .wasSelected").css("border", "3px solid green");
+            $(".controleer").attr("id", "uit");
+
+            $("#dialog").dialog("open");
+            $(".btnYes, .btnNo, .btnBack, .controleer").unbind();
+            return false;
+        }
+
+        $(".tree tr td").removeClass("selected wasSelected");
+        $(".node:first").addClass("selected");
+        var selectedNode = $(".selected");
+        comparison = [];
+
+        $(solution).each(function(index) {
+            if (this == determinationPath[index]) {
+                comparison.push(solution[index]);
+            } else {
+                return false;
+            }
+        });
+
+        determinationPath = comparison;
+
+        $(comparison).each(function(index) {
+            selectedNode.addClass("wasSelected").removeClass("selected").css("border", "3px solid green");
+            if (comparison[index]) {
+                selectedNode = $("#" + selectedNode.children(".btnYes").attr("data")).addClass("selected");
+            } else {
+                selectedNode = $("#" + selectedNode.children(".btnNo").attr("data")).addClass("selected");
+            }
+        });
+
+        $(".selected").children("button").attr("id", "aan");
+        $(".selected").children(".btnBack").remove();
+        $(".controleer").attr("id", "uit");
+    });
+
+    function controleerVegetatie() {
+        if (vegetationType == $("#antwVegetatie option:selected").text()) {
+            $("#antwVegetatie").css("border", "3px solid green");
+            $("#antwVegetatie").prop("disabled", true);
+            $(".incorrect").remove();
+            $(".btnVegetation").replaceWith("<p class='correct'>Juist!</p>");
+        } else {
+            $("#antwVegetatie").css("border", "3px solid red");
+            $(".btnVegetation").after("<p class='incorrect'>Probeer nog eens!</p>");
+        }
+    }
+</script>

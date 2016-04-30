@@ -1,0 +1,20 @@
+﻿@using NETProject.Models.Domain
+@using Newtonsoft.Json
+@model NETProject.ViewModels.NavigationViewModel
+
+@{
+    ViewBag.Title = "Kies een locatie";
+}
+
+<div class="row vertical-divider">
+    @Html.Action("RenderChoiceWindow", "Navigation", new { grade = Model.Grade, continent = Model.Continent, country = Model.Country, location = Model.Location })
+    <div class="col-md-8">
+        <h2>@ViewBag.Title</h2>
+        <div class="col" style="padding: 5px">
+            @foreach (var l in Model.List.Select(l => (Location)l).Select(l => l.Name))
+            {
+                <p class="p-list">@Html.ActionLink(l, "ViewClimatogram", "Climatogram", new { selectedGrade = Model.Grade.Id, selectedContinent = Model.Continent.Name, selectedCountry = Model.Country.Name, selectedLocation = l }, null)</p>
+            }
+        </div>
+    </div>
+</div>

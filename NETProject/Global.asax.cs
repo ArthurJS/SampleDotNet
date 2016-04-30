@@ -1,0 +1,32 @@
+﻿using NETProject.Models.DAL;
+using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using System.Web.Optimization;
+using System.Web.Routing;
+using NETProject.Models.Domain;
+
+namespace NETProject
+{
+    public class MvcApplication : System.Web.HttpApplication
+    {
+        protected void Application_Start()
+        {
+            AreaRegistration.RegisterAllAreas();
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            //ModelBinders.Binders.Add(typeof(Grade), new GradeModelBinder());
+
+            //new Context().Grades.ToList();
+            Database.SetInitializer(new InitDb());
+            Context database = new Context();
+
+            database.Database.Initialize(true);
+        }
+    }
+}

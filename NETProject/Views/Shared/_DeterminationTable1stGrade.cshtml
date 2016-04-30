@@ -1,0 +1,191 @@
+﻿
+@using NETProject.Models.Domain
+@model NETProject.ViewModels.DeterminationTableViewModel
+@{
+    Node rootNode = Model.Determinatietabel;
+
+}
+
+
+@*<div class="tree">
+    <h2>Determinatietabel</h2>
+    <table>
+        <tr>
+            <td class="node" id="selected">
+                <p>@rootNode.getText()</p>
+                <button class="yes" value="yes">Ja</button>
+                <button class="no" value="no">Nee</button>
+            </td>
+            <td class="node">
+                <p>@rootNode.YesNode.getText()</p>
+                <button class="yes" value="yes">Ja</button>
+                <button class="no" value="no">Nee</button>
+            </td>
+            <td class="enode"></td>
+            <td class="leaf">@rootNode.YesNode.YesNode.getText()</td>
+        </tr>
+        <tr>
+            <td class="enode"></td>
+            <td class="goright"></td>
+            <td class="enode"></td>
+            <td class="leaf">@rootNode.YesNode.NoNode.getText()</td>
+        </tr>
+        <tr>
+            <td class="node">
+                <p>@rootNode.NoNode.getText()</p>
+                <button class="yes" value="yes">Ja</button>
+                <button class="no" value="no">Nee</button>
+            </td>
+            <td class="enode"></td>
+            <td class="enode"></td>
+            <td class="leaf">@rootNode.NoNode.YesNode.getText()</td>
+        </tr>
+        <tr>
+            <td class="node">
+                <p>@rootNode.NoNode.NoNode.getText()</p>
+                <button class="yes" value="yes">Ja</button>
+                <button class="no" value="no">Nee</button>
+            </td>
+            <td class="node">
+                <p>@rootNode.NoNode.NoNode.YesNode.getText()</p>
+                <button class="yes" value="yes">Ja</button>
+                <button class="no" value="no">Nee</button>
+            </td>
+            <td class="node">
+                <p>@rootNode.NoNode.NoNode.YesNode.YesNode.getText()</p>
+                <button class="yes" value="yes">Ja</button>
+                <button class="no" value="no">Nee</button>
+            </td>
+            <td class="leaf">@rootNode.NoNode.NoNode.YesNode.YesNode.YesNode.getText()</td>
+        </tr>
+        <tr>
+            <td class="enode"></td>
+            <td class="enode"></td>
+            <td class="node">
+                <p>@rootNode.NoNode.NoNode.YesNode.YesNode.NoNode.getText()</p>
+                <button class="yes" value="yes">Ja</button>
+                <button class="no" value="no">Nee</button>
+            </td>
+            <td class="leaf">@rootNode.NoNode.NoNode.YesNode.YesNode.NoNode.YesNode.getText()</td>
+        </tr>
+        <tr>
+            <td class="enode"></td>
+            <td class="enode"></td>
+            <td class="goright"></td>
+            <td class="leaf">@rootNode.NoNode.NoNode.YesNode.YesNode.NoNode.NoNode.getText()</td>
+        </tr>
+        <tr>
+            <td class="enode"></td>
+            <td class="goright"></td>
+            <td class="enode"></td>
+            <td class="leaf">@rootNode.NoNode.NoNode.YesNode.NoNode.getText()</td>
+        </tr>
+        <tr>
+            <td class="goright"></td>
+            <td class="enode"></td>
+            <td class="enode"></td>
+            <td class="leaf">@rootNode.NoNode.NoNode.NoNode.getText()</td>
+        </tr>
+    </table>
+    <button class="controleer" id="uit" value="controleer">Controleer</button>
+</div>*@
+<script>
+    var solution = @Html.Raw(Json.Encode(Model.DeterminatiePad));
+    var determinationPath = [];
+    var comparison = [];
+    $(".yes").click(function () {
+        determinationPath.push(true);
+        $(this).parent().attr("id", "wasSelected");
+        var nextSiblings = $(this).parent().nextAll();
+        nextSiblings.each(function() {
+            if ($(this).attr("class") == "node") {
+                $(this).attr("id", "selected");
+                return false;
+            }
+            else if ($(this).attr("class") == "leaf") {
+                $(this).attr("id", "selected");
+                $(".controleer").attr("id", "aan");
+                return false;
+            }
+        })
+    })
+
+    $(".no").click(function() {
+        determinationPath.push(false);
+        $(this).parent().attr("id", "wasSelected");
+        var childNumber = $(this).parent().index();
+        var rowNumber = $(this).parent().parent().index();
+        var nextSiblings = $(".tree tr td:nth-child(" + (childNumber+1) + "):gt(" + rowNumber + ")");
+        nextSiblings.each(function() {
+            if ($(this).attr("class") == "node") {
+                $(this).attr("id", "selected");
+                return false;
+            }
+            else if ($(this).attr("class") == "goright") {
+                $(this).nextAll(".leaf").attr("id", "selected");
+                $(".controleer").attr("id", "aan");
+                return false;
+            }
+        })
+    })
+
+    $(".controleer").click(function() {
+        if (JSON.stringify(solution) == JSON.stringify(determinationPath)) {
+            $("#selected").css("border", "1px solid green");
+            $(".controleer").attr("id", "uit");
+            alert("De determinatie is geslaagd! Het juiste antwoord is " + $("#selected").html() + "!");
+            $("button").not("#verbeter").unbind();
+            return false;
+        }
+
+        $(".tree tr td").attr("id", "");
+        $(".node:first").attr("id", "selected");
+        var selectedNode = $("#selected");
+        comparison = [];
+
+        $(solution).each(function(index) {
+            if (this == determinationPath[index]) {
+                comparison.push(solution[index]);
+            } else {
+                return false;
+            }
+        })
+
+        determinationPath = comparison;
+
+        $(comparison).each(function(index) {
+            var nextSiblings;
+            selectedNode.attr("id", "wasSelected");
+            if (comparison[index]) {
+                nextSiblings = selectedNode.nextAll();
+                nextSiblings.each(function() {
+                    if ($(this).attr("class") == "node") {
+                        $(this).attr("id", "selected");
+                        selectedNode = $(this);
+                        return false;
+                    } else if ($(this).attr("class") == "leaf") {
+                        $(this).attr("id", "selected");
+                        $(".controleer").attr("id", "aan");
+                        return false;
+                    }
+                })
+            } else {
+                var childNumber = selectedNode.index();
+                var rowNumber = selectedNode.parent().index();
+                nextSiblings = $(".tree tr td:nth-child(" + (childNumber+1) + "):gt(" + rowNumber + ")");
+                nextSiblings.each(function() {
+                    if ($(this).attr("class") == "node") {
+                        $(this).attr("id", "selected");
+                        selectedNode = $(this);
+                        return false;
+                    }
+                    else if ($(this).attr("class") == "goright") {
+                        $(this).nextAll(".leaf").attr("id", "selected");
+                        return false;
+                    }
+                })
+            }
+        })
+        $(".controleer").attr("id", "uit");
+    })
+</script>

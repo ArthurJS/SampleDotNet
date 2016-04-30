@@ -1,0 +1,155 @@
+﻿body {
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.col-md-4, .col-md-8{
+    float: right;
+    min-height: 547px;
+    margin-top: 20px;
+}
+
+.col-md-4 {
+    padding-left: 19px;
+}
+
+.p-left {
+    float: left;
+    margin-left: 10%;
+    display: inline;
+    font-weight: bold;
+    min-width: 140px;
+}
+
+.p-right {
+    display: inline;
+}
+
+.p-list {
+    display: table;
+    margin-left: 48%;
+    
+}
+
+.p-listVragen {
+    display: table;
+    margin-left: 5%;
+}
+
+.row.vertical-divider {
+  overflow: hidden;
+    min-height: 547px;
+}
+.row.vertical-divider > div[class^="col-"] {
+  text-align: center;
+  border-left: 3px solid #F2F7F9;
+  border-right: 3px solid #F2F7F9;
+}
+.row.vertical-divider div[class^="col-"]:first-child {
+  border-right: none;
+}
+.row.vertical-divider div[class^="col-"]:last-child {
+  border-left: none;
+}
+
+.Fout {
+    border: 1px solid red;
+}
+
+.Juist {
+    border: 1px solid green;
+}
+
+.tree {
+    margin-top: 50px;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+
+.tree table {
+    border-collapse: separate;
+    border-spacing: 37px 22px;
+    position: relative;
+    margin: 0 auto;
+}
+.tree td.node, .tree td.leaf {
+    height: 40px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    text-align: center;
+    margin: 0 50px;
+    opacity: 0.5;
+}
+
+.tree .enode {
+    border: none;
+}
+
+.tree .node {
+    width: 100px;
+}
+
+.tree .leaf {
+    width: 330px;
+}
+
+button.btnYes {
+    position: absolute;
+    margin-left: 39px;
+    margin-top: -27px;
+}
+
+button.btnNo {
+    position: absolute;
+    margin-left: -20px;
+}
+
+button.btnBack {
+    position: absolute;
+    margin-left: -92px;
+    margin-top: -27px;
+}
+
+button#aan {
+    display: inline;
+}
+
+button#uit {
+    display: none;
+}
+
+td.node.selected, td.node.wasSelected, td.leaf.selected {
+    opacity: 1;
+}
+
+td.node.selected .btnYes, td.node.selected .btnNo {
+    display: inline;
+}
+
+.correct {
+    color: green;
+}
+
+.incorrect {
+    color: red;
+}
+
+#antwVegetatie {
+    margin-top: 10px;
+}
+
+

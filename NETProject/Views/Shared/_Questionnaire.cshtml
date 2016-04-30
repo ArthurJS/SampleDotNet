@@ -1,0 +1,19 @@
+﻿@model NETProject.ViewModels.QuestionnaireViewModel
+<div class="col-md-4">
+    
+    @{  if (Model.Grade.Id < 3)
+      {
+        <h2>Vul in</h2>
+          for (var i = 0; i < @Model.Vragen.Length; i++)
+          {
+                <p class="p-listVragen">@Model.Vragen[i]</p>
+                <p class="p-listVragen">@Html.DropDownList("antw" + i, new SelectList(Model.AntwoordOpties[i]), "Selecteer")</p>
+                <input type="hidden" name="juistAntw1" id="juistAntw1" value="@Model.JuisteAntwoorden[i]" />
+                <hr />
+          }
+        <button id="verbeter" value="Verbeter">Controleer</button>
+      }
+
+}
+    
+</div>

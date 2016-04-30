@@ -1,0 +1,30 @@
+﻿@model NETProject.ViewModels.SharedViewModel
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @Html.ActionLink("Klimatogramtrainer", "SelectGrade", "Navigation", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Jaar kiezen", "SelectGrade", "Navigation")</li>
+                @if (Model.Grade != null)
+                {
+                    <li>@Html.ActionLink("Werelddeel kiezen", "SelectContinent", "Navigation", new { selectedGrade = Model.Grade.ToString()}, null)</li>
+                }
+                @if (Model.Continent != null)
+                {
+                    <li>@Html.ActionLink("Land kiezen", "SelectCountry", "Navigation", new { selectedGrade = Model.Grade.ToString(), selectedContinent = Model.Continent }, null)</li>
+                }
+                @if (Model.Country != null)
+                {
+                    <li>@Html.ActionLink("Locatie kiezen", "SelectLocation", "Navigation", new { selectedGrade = Model.Grade.ToString(), selectedContinent = Model.Continent, selectedCountry = Model.Country }, null)</li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>

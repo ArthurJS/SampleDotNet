@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="NETProject.Models.Domain.Grade">
+    <Position X="9" Y="3.75" Width="3" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAACAAAABAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\Grade.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Continents" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="NETProject.Models.Domain.Country">
+    <Position X="9" Y="6.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAQAAAAAAAAIAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\Country.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Locations" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="NETProject.Models.Domain.MonthlyData">
+    <Position X="8.75" Y="9.25" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAEIAIAAAAEAAA=</HashCode>
+      <FileName>Models\Domain\MonthlyData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NETProject.Models.Domain.Continent">
+    <Position X="11.5" Y="6.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAgAAAAAAAAAAAAAQQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\Continent.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Countries" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="NETProject.Models.Domain.Location">
+    <Position X="0.5" Y="5" Width="7.75" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAABAAAYQAAEAEQAQSAAAQAAQAIAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\Location.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Climatogram" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="NETProject.Models.Domain.Climatogram">
+    <Position X="0.5" Y="9.5" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>QAACAAAAAAAAgAAEAAEAAQAAAJAIAAAAAAsAAAAEAAI=</HashCode>
+      <FileName>Models\Domain\Climatogram.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="MonthlyDataList" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="NETProject.Models.Domain.Bigger" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\Bigger.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NETProject.Models.Domain.BiggerOrEqual" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\BiggerOrEqual.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NETProject.Models.Domain.ColdestMonth" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAQAAAAgAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Models\Domain\ColdestMonth.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NETProject.Models.Domain.Equal" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\Equal.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NETProject.Models.Domain.HotMonths" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAQAAAAgAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Models\Domain\HotMonths.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NETProject.Models.Domain.HottestMonth" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAQAAAAgAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Models\Domain\HottestMonth.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NETProject.Models.Domain.Leaf" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAEgAAAAA=</HashCode>
+      <FileName>Models\Domain\Leaf.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NETProject.Models.Domain.Nj" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAQAAAAgAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Models\Domain\Nj.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NETProject.Models.Domain.Nm" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAQAAAAgAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Models\Domain\Nm.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NETProject.Models.Domain.Node" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAAAABAAAAAAAAAQAAAAAAgAAAAJAk=</HashCode>
+      <FileName>Models\Domain\Node.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NETProject.Models.Domain.PrecipitationSummer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ICAAAAAAAAAAAAQAAAAwAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Models\Domain\PrecipitationSummer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NETProject.Models.Domain.PrecipitationWinter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ICAAAAAAAAAAAAQAAAAwAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Models\Domain\PrecipitationWinter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NETProject.Models.Domain.Smaller" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\Smaller.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NETProject.Models.Domain.SmallerOrEqual" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\SmallerOrEqual.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NETProject.Models.Domain.Student" Collapsed="true">
+    <Position X="11" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Models\Domain\Student.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NETProject.Models.Domain.Tk" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAQAAAAgAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Models\Domain\Tk.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NETProject.Models.Domain.Tm" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAQAAAAgAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Models\Domain\Tm.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NETProject.Models.Domain.Tw" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAQAAAAgAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Models\Domain\Tw.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.246" />
+  </Class>
+  <Class Name="NETProject.Models.Domain.Vragenlijst" Collapsed="true">
+    <Position X="9.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAEAAAAAAAAAAACCAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\Vragenlijst.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NETProject.Models.Domain.WetMonths" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAQAAAAgAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Models\Domain\WetMonths.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NETProject.ViewModels.VerbeteringViewModel" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAgAAQAA=</HashCode>
+      <FileName>ViewModels\ClimatogramViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="NETProject.Models.DAL.IGradeRepository" Collapsed="true">
+    <Position X="0.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\IGradeRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="NETProject.Models.Domain.INode" Collapsed="true">
+    <Position X="2.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\INode.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="NETProject.Models.Domain.IOperator" Collapsed="true">
+    <Position X="4" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\IOperator.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="NETProject.Models.Domain.IParameter" Collapsed="true">
+    <Position X="5.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAQAAAAgAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Models\Domain\IParameter.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

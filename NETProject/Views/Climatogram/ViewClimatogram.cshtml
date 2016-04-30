@@ -1,0 +1,63 @@
+﻿@using NETProject.Models.Domain
+@using Newtonsoft.Json
+@model NETProject.ViewModels.ClimatogramViewModel
+@{
+    ViewBag.Title = "De Klimatogram";
+}
+@Html.Action("RenderNavBar", "Navigation", new { grade = Model.Grade, continent = Model.Continent, country = Model.Country, location = Model.Country })
+<div class="row vertical-divider">
+    @Html.Action("RenderQuestionnaire", "climatogram", new {vragen = Model.Vragen, juisteAntwoorden = Model.Antwoorden, antwoordOpties = Model.AntwoordOpties, grade = Model.Grade })
+    <div class="col-md-8">
+        <h2></h2>
+        <div>@Model.Chart</div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Maand: </th>
+                    @{
+                        for (var i = 0; i < Model.MonthLabels.Length; i++)
+                        {
+                            <td>@Model.MonthLabels[i]</td>
+                        }
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">N in mmN </th>
+                    @{
+                        for (var i = 0; i < Model.MonthLabels.Length; i++)
+                        {
+                            <td>@Model.PrecipitationData[i]</td>
+                        }
+                        <th>Totaal: @Model.getTotalPrecipitation()</th>
+                    }
+                </tr>
+                <tr>
+                    <th scope="row">T in &deg;C </th>
+                    @{
+                        for (var i = 0; i < Model.MonthLabels.Length; i++)
+                        {
+                            <td>@Model.TemperatureData[i]</td>
+                        }
+                        <th>Gemiddeld: @Model.getAverageTemp().ToString("#.00")</th>
+                    }
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="row vertical-divider">
+        @Html.Action("RenderDeterminationTable", "Climatogram", new { determinatietabel = Model.Determinatietabel, determinatiePad = Model.DeterminatiePad, selectedGrade = Model.Grade, climatogramSolution = Model.ClimatogramSolution})
+</div>
+<script>
+    $("#verbeter").click(function() {
+        $("[id^=antw]").each(function(index) {
+            if ($(this).val() == $("[id^=juistAntw]").eq(index).attr("value")) {
+                $(this).css("border", "1px solid green").attr('readonly', true);
+            } else {
+                $(this).css("border", "1px solid red");
+            }
+        })
+    })
+</script>
